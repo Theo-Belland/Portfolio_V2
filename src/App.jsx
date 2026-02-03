@@ -33,7 +33,8 @@ export default function App() {
     <AppProvider>
       <Router>
         <Navbar />
-        <Routes>
+        <div className="with-navbar">
+          <Routes>
           {/* Pages publiques */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -48,7 +49,8 @@ export default function App() {
               <DashboardAdmin />
             </ProtectedRoute>
           } />
-        </Routes>
+          </Routes>
+        </div>
       </Router>
     </AppProvider>
   );
