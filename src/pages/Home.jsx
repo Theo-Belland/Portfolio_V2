@@ -1,10 +1,10 @@
 import React from 'react';
-import Hero from '../Components/Hero';
+import Activity from "../Components/Activity";
 
 export default function Home() {
   return (
     <main>
-      <Hero />
+      <Activity />
     </main>
   );
 }

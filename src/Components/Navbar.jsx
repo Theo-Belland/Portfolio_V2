@@ -12,7 +12,7 @@ export default function Navbar() {
                 </div>
                 <div className="separator"></div>
                 <ul className="">
-                    <li><Link to="/">Accueil</Link></li>
+                    <li><Link to="/admin">Admin</Link></li>
                     <li><Link to="/about">À propos</Link></li>
                     <li><Link to="/projet">Projet</Link></li>
                     <li><Link to="/contact">Contact</Link></li>

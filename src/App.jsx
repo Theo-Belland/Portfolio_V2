@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 import { AppProvider } from "./Context/AppContext";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import Home from "./pages/Home";
@@ -10,15 +10,17 @@ import Login from "./pages/Login";
 import MaintenancePage from "./pages/MaintenancePage";
 import DashboardAdmin from "./pages/Admin";
 import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
 import "./App.scss";
 
 
 
-export default function App() {
+
+function AppContent() {
+  const location = useLocation();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simule un loader pendant 1.5s
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1500);
@@ -30,11 +32,11 @@ export default function App() {
   }
 
   return (
-    <AppProvider>
-      <Router>
-        <Navbar />
-        <div className="with-navbar">
-          <Routes>
+    <>
+      {/* Affiche la Navbar uniquement si l'URL ne commence pas par /admin */}
+      {!location.pathname.startsWith("/admin") && <Navbar />}
+      <div className="with-navbar">
+        <Routes>
           {/* Pages publiques */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -49,9 +51,19 @@ export default function App() {
               <DashboardAdmin />
             </ProtectedRoute>
           } />
-          </Routes>
-        </div>
+        </Routes>
+      </div>
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <AppProvider>
+      <Router>
+        <AppContent />
       </Router>
+      <Footer />
     </AppProvider>
   );
 }
