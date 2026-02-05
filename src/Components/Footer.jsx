@@ -5,12 +5,16 @@ import { FaRegUserCircle } from "react-icons/fa";
 export default function Footer() {
     return(
         <footer className="footer">
-           <p>© 2026 Théo Belland. Tous droits réservés.</p>
-           
-        <div className="admin-icon">
-          <FaRegUserCircle />
-        </div>
-
+            <div className="left">
+                <p>Mentions légales</p>
+                <p>Politique de confidentialité</p>
+            </div>
+            <div className="center">
+                <p>© 2026 Théo Belland. Tous droits réservés.</p>
+            </div>   
+            <div className="admin-icon">
+            <FaRegUserCircle />
+            </div>
         </footer>
     );
 }

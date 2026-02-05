@@ -28,7 +28,22 @@
         pointer-events: none;
         z-index: 101;
     }
+    .left{
+        display: flex;
+        flex-direction: column;
+        margin-left: 200px;
+        p{
+            margin-top: 2px;
+            margin-bottom: 2px;
+        }
+    }
+    .center{
+        margin-left: 150px;
+        margin-right: 150px;
+    }
     .admin-icon{
+        margin-top: 10px;
+        margin-left: 15px;
         font-size: 24px;
     }
 }
